@@ -1,0 +1,38 @@
+.App {
+  text-align: left;
+  background-color: #FEFEFE;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.Container {
+  text-align: center;
+  background-color: #C0C0C0;
+  width: 100%;
+  padding: 10px;
+}
+
+.InputContainer {
+  text-align: center;
+}
+
+.Body {
+  text-align: center;
+  display: inline-block;
+  background-color: #d7d7d7;
+  padding: 20px;
+}
+
+.Keys {
+  padding-top: 20px;
+  display: inline-block;
+}
+
+.Keys button {
+  width: 60px;
+  height: 60px;
+}

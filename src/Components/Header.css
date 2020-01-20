@@ -1,0 +1,9 @@
+.AppHead {
+  background-color: #0E8FC4;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  font-size: calc(10px + 2vmin);
+}
