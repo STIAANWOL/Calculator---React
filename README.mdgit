@@ -1,0 +1,1 @@
+"# Calculator---React"  initgit add README.mdgit commit -m "first commit"git remote add origin git@github.com:STIAANWOL/Calculator---React.gitgit push -u origin master
