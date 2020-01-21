@@ -16,6 +16,7 @@ class Calculator extends Component {
   }
 
 clickHandler(value) {
+
   switch(value) {
     case "/":
       this.setState ({
@@ -46,33 +47,69 @@ clickHandler(value) {
       })
       break;
     case "=":
-      this.setState({
-        operator: "=",
-        firstVal: this.state.currentInput,
-        currentInput: ""
-      })
-      if (this.state.firstVal !== "") {
+      if (this.state.firstVal !== "" & this.state.operator === "+") {
         this.setState({
-          secondVal: this.state.currentInput
+          secondVal: this.state.currentInput,
+          currentInput: ""
+        }, () => {
+          let answer = Math.trunc(this.state.firstVal) + Math.trunc(this.state.secondVal)
+          this.setState({
+            currentInput: answer
+          })
         })
-        console.log("First val is not empty")
-        let calculation = this.state.firstVal + this.state.operator + this.state.secondVal + "="
-
-        console.log(calculation)
-        console.log(this.state.answer)
+      }
+      else if (this.state.firstVal !== "" & this.state.operator === "-") {
+        this.setState({
+          secondVal: this.state.currentInput,
+          currentInput: ""
+        }, () => {
+          let answer = Math.trunc(this.state.firstVal) - Math.trunc(this.state.secondVal)
+          this.setState({
+            currentInput: answer
+          })
+        })
+      }
+      else if (this.state.firstVal !== "" & this.state.operator === "/") {
+        this.setState({
+          secondVal: this.state.currentInput,
+          currentInput: ""
+        }, () => {
+          let answer = Math.trunc(this.state.firstVal) / Math.trunc(this.state.secondVal)
+          this.setState({
+            currentInput: answer
+          })
+        })
+      }
+      else if (this.state.firstVal !== "" & this.state.operator === "x") {
+        this.setState({
+          secondVal: this.state.currentInput,
+          currentInput: ""
+        }, () => {
+          let answer = Math.trunc(this.state.firstVal) * Math.trunc(this.state.secondVal)
+          this.setState({
+            currentInput: answer
+          })
+        })
+      }
+      else {
+        this.setState({
+          operator: "=",
+          currentInput: this.currentInput
+        })
       }
       break;
     default:
-    console.log(this.state.firstVal)
+      if (this.state.firstVal !== "" & this.state.secondVal !== ""){
+        this.setState({
+          firstVal: "",
+          secondVal: "",
+          currentInput: this.state.currentInput + value
+        })
+      }
       this.setState({
         currentInput: this.state.currentInput + value
       })
-      console.log("Current input", this.state.currentInput)
-  }
-}
-
-changeHandler() {
-
+    }
 }
 
   render() {
